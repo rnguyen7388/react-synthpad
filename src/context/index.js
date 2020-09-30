@@ -1,3 +1,4 @@
+  
 import React, { createContext, useContext, useReducer } from 'react'
 
 const lightState = {
@@ -45,6 +46,7 @@ const lightState = {
     }
   ]
 }
+
 const darkState = {
   mode: 'dark',
   notes: [
@@ -97,13 +99,14 @@ const { Provider } = AppContext
 // reducer
 const reducer = (state, action) => {
   switch(action.type) {
+    case 'TOGGLE_MODE':
+      return action.payload === 'light' ? lightState : darkState
     default:
       return state
   }
 }
 
-
-// provider 
+// provider
 const AppContextProvider = props => {
   const [state, dispatch] = useReducer(reducer, lightState)
 

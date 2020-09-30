@@ -1,16 +1,15 @@
 import React from 'react';
-import { AMSynth } from 'tone'
-import './App.css';
-
-
-const synth = new AMSynth().toMaster()
-
-synth.triggerAttackRelease('C4', '8n')
+import { AppContextProvider } from './context'
+import Layout from './components/layout'
 
 function App() {
   return (
-    <>App</>
-  )
+    <AppContextProvider>
+      <Layout>
+        
+      </Layout>
+    </AppContextProvider>
+  );
 }
 
 export default App;
